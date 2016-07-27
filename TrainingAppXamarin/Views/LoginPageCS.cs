@@ -50,14 +50,14 @@ namespace TrainingAppXamarin
 
 		async void OnSignUpButtonClicked(object sender, EventArgs e)
 		{
-			//await Navigation.PushAsync(new SignUpPageCS());
+			await Navigation.PushAsync(new SignUpPageCS());
 		}
 
 		async void OnLoginButtonClicked(object sender, EventArgs e)
 		{
 			if (!Client.SharedClient.CurrentUser.isUserLoggedIn())
 			{
-				User u = await Client.SharedClient.CurrentUser.LoginAsync(usernameEntry.Text, passwordEntry.Text);
+				await Client.SharedClient.CurrentUser.LoginAsync(usernameEntry.Text, passwordEntry.Text);
 			}
 			Navigation.InsertPageBefore(new MainPageCS(), this);
 			await Navigation.PopAsync();

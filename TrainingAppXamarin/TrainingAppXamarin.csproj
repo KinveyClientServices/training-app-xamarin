@@ -36,6 +36,9 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainPage.xaml" />
+    <EmbeddedResource Include="Views\SignUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -47,8 +50,12 @@
     <Compile Include="Views\MainPage.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginPageCS.cs" />
-    <Compile Include="MainPageCS.cs" />
+    <Compile Include="Views\SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPageCS.cs" />
+    <Compile Include="Views\LoginPageCS.cs" />
+    <Compile Include="Views\SignUpPageCS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
