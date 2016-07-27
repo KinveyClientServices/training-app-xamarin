@@ -1,0 +1,26 @@
+# Xamarin Components
+Components/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+packages/
+TestResults/
+
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.userprefs
+
+# ignore Xamarin.Android Resource.Designer.cs files
+**/*.Droid/**/[Rr]esource.[Dd]esigner.cs
+**/*.Android/**/[Rr]esource.[Dd]esigner.cs
+**/Android/**/[Rr]esource.[Dd]esigner.cs
