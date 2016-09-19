@@ -4,7 +4,7 @@ using KinveyXamarin;
 namespace TrainingAppXamarin
 {
 	[JsonObject(MemberSerialization.OptIn)]
-	public class Book : KinveyObject
+	public class Book : Entity
 	{
 		[JsonProperty("title")]
 		public string Title { get; set; }

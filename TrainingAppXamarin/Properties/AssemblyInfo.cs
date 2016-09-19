@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("vinay")]
+[assembly: AssemblyCopyright("austin")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

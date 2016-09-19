@@ -8,8 +8,6 @@ namespace TrainingAppXamarin
 	{
 		private string app_key = "kid_Wy7NMiwaTx";
 		private string app_secret = "18e581bc9c7046a5b1b20ae838105126";
-		private string user = "austin";
-		private string pass = "12345";
 
 		public App()
 		{
@@ -17,7 +15,7 @@ namespace TrainingAppXamarin
 
 			try
 			{
-				client = new Client.Builder(app_key, app_secret)
+				Client.SharedClient = new Client.Builder(app_key, app_secret)
 									//.setFilePath (NSFileManager.DefaultManager.GetUrls (NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User) [0].ToString ())
 									.setFilePath(DependencyService.Get<ISQLite>().GetPath())
 									.setOfflinePlatform(DependencyService.Get<ISQLite>().GetConnection())
@@ -30,18 +28,14 @@ namespace TrainingAppXamarin
 			}
 
 
-			if (Client.SharedClient.CurrentUser.isUserLoggedIn())
-				MainPage = new NavigationPage(new MainPageCS());
+			if (Client.SharedClient.ActiveUser != null && Client.SharedClient.ActiveUser.IsActive())
+				MainPage = new MainPage();
 			else
-				MainPage = new NavigationPage(new LoginPageCS());
+				MainPage = new LoginPage();
 		}
 
-		protected override async void OnStart()
+		protected override void OnStart()
 		{
-			//if (!Client.SharedClient.CurrentUser.isUserLoggedIn())
-			//{
-			//	await Client.SharedClient.CurrentUser.LoginAsync(user, pass);
-			//}
 		}
 
 		protected override void OnSleep()
@@ -52,12 +46,6 @@ namespace TrainingAppXamarin
 		protected override void OnResume()
 		{
 			// Handle when your app resumes
-		}
-
-		public static Client client
-		{
-			get;
-			private set;
 		}
 	}
 }

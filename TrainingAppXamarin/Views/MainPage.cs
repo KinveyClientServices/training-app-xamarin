@@ -15,11 +15,6 @@ namespace TrainingAppXamarin
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-
-			//if (!Client.SharedClient.CurrentUser.isUserLoggedIn())
-			//{
-			//	Navigation.PushAsync(new LoginPage());
-			//}
 		}
 
 
@@ -27,7 +22,7 @@ namespace TrainingAppXamarin
 		{
 			try
 			{
-				DataStore<Book> dataStore = DataStore<Book>.GetInstance(DataStoreType.SYNC, "books");
+				DataStore<Book> dataStore = DataStore<Book>.Collection("books", DataStoreType.SYNC);
 
 				Button button = (Button)sender;
 
@@ -65,14 +60,14 @@ namespace TrainingAppXamarin
 				}
 				else if (button.Text == "Logout")
 				{
-					Client.SharedClient.CurrentUser.Logout();
+					Client.SharedClient.ActiveUser.Logout();
 					App.Current.MainPage = new LoginPage();
 				}
 			}
 			catch (KinveyException ke)
 			{
 				await DisplayAlert("Kinvey Exception",
-								   ke.Reason + " | " + ke.Explanation + " | " + ke.Fix,
+								   ke.ErrorCode + " | " + ke.Error + " | " + ke.Description + " | " + ke.Debug,
 								   "OK");
 			}
 			catch (Exception e)
@@ -81,6 +76,13 @@ namespace TrainingAppXamarin
 								   e.Message,
 								   "OK");
 			}
+		}
+
+		async void OnLogoutButtonClicked(object sender, EventArgs e)
+		{
+			Client.SharedClient.ActiveUser.Logout();
+			Navigation.InsertPageBefore(new LoginPage(), this);
+			await Navigation.PopAsync();
 		}
 	}
 

@@ -18,14 +18,12 @@ namespace TrainingAppXamarin
 			String password = passwordEntry.Text;
 
 			// Sign up logic goes here
-
-			var valid = AreDetailsValid(username, password);
-			if(valid) {
-				User user = await Client.SharedClient.CurrentUser.CreateAsync(username, password);
+			if(AreDetailsValid(username, password)) {
+				await User.SignupAsync(username, password);
 				var rootPage = Navigation.NavigationStack.FirstOrDefault();
 				if (rootPage != null)
 				{
-					Navigation.InsertPageBefore(new MainPageCS(), Navigation.NavigationStack.First());
+					Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.First());
 					await Navigation.PopToRootAsync();
 				}
 			}
