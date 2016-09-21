@@ -10,19 +10,11 @@
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<StackLayout>
-			<Label Text="{Binding TextTest}"
-				VerticalOptions="Center"
-				HorizontalTextAlignment="Center"
-				Rotation="0"
-				IsVisible="true"
-				FontSize="Large"
-				FontAttributes="Bold"
-				TextColor="#D74F24" />
             <ListView x:Name="ProductView"
 					ItemsSource="{Binding Products}">
 			    <ListView.ItemTemplate>
 			      <DataTemplate>
-			        <TextCell Text="{Binding Name}" />
+			        <TextCell Text="{Binding Name}" Detail="{Binding Description}"/>
 			      </DataTemplate>
 			    </ListView.ItemTemplate>
 			</ListView>

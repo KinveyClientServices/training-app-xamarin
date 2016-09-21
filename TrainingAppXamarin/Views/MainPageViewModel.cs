@@ -7,25 +7,7 @@ namespace TrainingAppXamarin
 {
 	public class MainPageViewModel : INotifyPropertyChanged
 	{
-		public string textTest = "Xamarin v3.0 Training App";
-
-		public string TextTest
-		{
-			get
-			{
-				return textTest;
-			}
-			set
-			{
-				if (textTest != value)
-				{
-					textTest = value;
-					OnPropertyChanged("TextTest");
-				}
-			}
-		}
-
-		public List<Product> products = new List<Product> {new Product("Amazon", "drones")};
+		public List<Product> products = new List<Product>();
 
 		public List<Product> Products
 		{

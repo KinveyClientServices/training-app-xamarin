@@ -33,9 +33,9 @@ namespace TrainingAppXamarin
 			Client.SharedClient.PingAsync();
 
 			if (Client.SharedClient.ActiveUser != null && Client.SharedClient.ActiveUser.IsActive())
-				MainPage = new MainPage();
+				MainPage = new NavigationPage(new MainPage());
 			else
-				MainPage = new LoginPage();
+				MainPage = new NavigationPage(new LoginPage());
 		}
 
 		protected override void OnStart()
