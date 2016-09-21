@@ -16,17 +16,21 @@ namespace TrainingAppXamarin
 			try
 			{
 				Client.SharedClient = new Client.Builder(app_key, app_secret)
-									//.setFilePath (NSFileManager.DefaultManager.GetUrls (NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User) [0].ToString ())
+
 									.setFilePath(DependencyService.Get<ISQLite>().GetPath())
 									.setOfflinePlatform(DependencyService.Get<ISQLite>().GetConnection())
-									//.setLogger (delegate (string msg) { Console.WriteLine (msg); })
+									.setLogger (delegate (string msg) { System.Diagnostics.Debug.WriteLine (msg); })
 									.build();
+
+				//Client.SharedClient.MICApiVersion = "v2";
 			}
 			catch (Exception e)
 			{
 				System.Diagnostics.Debug.WriteLine("General Exception", e.Message);
 			}
 
+			//Test API call for use when initially starting development
+			Client.SharedClient.PingAsync();
 
 			if (Client.SharedClient.ActiveUser != null && Client.SharedClient.ActiveUser.IsActive())
 				MainPage = new MainPage();

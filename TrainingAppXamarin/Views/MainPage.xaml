@@ -6,36 +6,27 @@
 		Padding="0,20,0,0">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked"/>
+		<ToolbarItem Text="Pull" Clicked="OnPullClicked"/>
 	</ContentPage.ToolbarItems>
-	<StackLayout>
-		<Label Text="Xamarin v3.0 Starter App"
-			VerticalOptions="Center"
-			HorizontalTextAlignment="Center"
-			Rotation="0"
-			IsVisible="true"
-			FontSize="Large"
-			FontAttributes="Bold"
-			TextColor="#D74F24" />
-		<Button Text="Add Book"
-				HorizontalOptions="Center"
-				VerticalOptions="CenterAndExpand"
-				Clicked="OnButtonClicked" />
-		<Button Text="Push"
-				HorizontalOptions="Center"
-				VerticalOptions="CenterAndExpand"
-				Clicked="OnButtonClicked" />
-		<Button Text="Pull"
-				HorizontalOptions="Center"
-				VerticalOptions="CenterAndExpand"
-				Clicked="OnButtonClicked" />
-		<Button Text="Sync"
-				HorizontalOptions="Center"
-				VerticalOptions="CenterAndExpand"
-				Clicked="OnButtonClicked" />
-		<Button Text="Logout"
-				HorizontalOptions="Center"
-				VerticalOptions="CenterAndExpand"
-				Clicked="OnButtonClicked" />
-	</StackLayout>
+	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="{Binding TextTest}"
+				VerticalOptions="Center"
+				HorizontalTextAlignment="Center"
+				Rotation="0"
+				IsVisible="true"
+				FontSize="Large"
+				FontAttributes="Bold"
+				TextColor="#D74F24" />
+            <ListView x:Name="ProductView"
+					ItemsSource="{Binding Products}">
+			    <ListView.ItemTemplate>
+			      <DataTemplate>
+			        <TextCell Text="{Binding Name}" />
+			      </DataTemplate>
+			    </ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>
 
