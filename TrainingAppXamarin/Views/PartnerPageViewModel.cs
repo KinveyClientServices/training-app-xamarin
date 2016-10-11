@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace TrainingAppXamarin
 {
-	public class MainPageViewModel : INotifyPropertyChanged
+	public class PartnerPageViewModel : INotifyPropertyChanged
 	{
-		public List<Product> products = new List<Product>();
+		public List<Partner> partners = new List<Partner>();
 
-		public List<Product> Products
+		public List<Partner> Partners
 		{
 			get
 			{
-				return products;
+				return partners;
 			}
 			set
 			{
-				if (products != null)
+				if (partners != null)
 				{
-					products = value;
-					OnPropertyChanged("Products");
+					partners = value;
+					OnPropertyChanged("Partners");
 				}
 			}
 		}
@@ -37,3 +37,4 @@ namespace TrainingAppXamarin
 		}
 	}
 }
+

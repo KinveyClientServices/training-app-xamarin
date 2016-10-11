@@ -67,7 +67,7 @@
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Views\MainPageViewModel.cs" />
+    <Compile Include="Views\ProductPageViewModel.cs" />
     <Compile Include="Views\PartnerPage.xaml.cs">
       <DependentUpon>PartnerPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +80,8 @@
     <Compile Include="Views\FilePage.xaml.cs">
       <DependentUpon>FilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partner.cs" />
+    <Compile Include="Views\PartnerPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">

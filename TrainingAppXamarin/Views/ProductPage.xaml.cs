@@ -8,7 +8,7 @@ namespace TrainingAppXamarin
 {
 	public partial class ProductPage : ContentPage
 	{
-		private MainPageViewModel viewModel = new MainPageViewModel();
+		private ProductPageViewModel viewModel = new ProductPageViewModel();
 
 		public ProductPage()
 		{
