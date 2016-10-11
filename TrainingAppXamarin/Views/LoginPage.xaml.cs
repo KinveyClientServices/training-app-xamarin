@@ -14,8 +14,8 @@ namespace TrainingAppXamarin
 		async void OnLoginButtonClicked(object sender, EventArgs e)
 		{
 			await User.LoginAsync(usernameEntry.Text, passwordEntry.Text);
-			Navigation.InsertPageBefore(new MainPage(), this);
-			await Navigation.PopAsync();
+			Application.Current.MainPage = new MainPage();
+			//await Navigation.PopAsync();
 			//else {
 			//	messageLabel.Text = "Login failed";
 			//	passwordEntry.Text = string.Empty;

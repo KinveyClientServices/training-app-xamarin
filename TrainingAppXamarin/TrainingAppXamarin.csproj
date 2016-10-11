@@ -38,6 +38,18 @@
     <EmbeddedResource Include="Views\SignUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PartnerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TodoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -56,6 +68,18 @@
     </Compile>
     <Compile Include="Models\Product.cs" />
     <Compile Include="Views\MainPageViewModel.cs" />
+    <Compile Include="Views\PartnerPage.xaml.cs">
+      <DependentUpon>PartnerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductPage.xaml.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TodoPage.xaml.cs">
+      <DependentUpon>TodoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilePage.xaml.cs">
+      <DependentUpon>FilePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">
