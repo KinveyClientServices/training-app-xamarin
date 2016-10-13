@@ -21,7 +21,7 @@ namespace TrainingAppXamarin
 			base.OnAppearing();
 			try
 			{
-				viewModel.Partners = await dataStore.PullAsync();
+				viewModel.Partners = await dataStore.FindAsync();
 			}
 			catch (KinveyException e)
 			{
@@ -34,7 +34,7 @@ namespace TrainingAppXamarin
 			try
 			{
 				viewModel.Partners = await dataStore.PullAsync();
-				await DisplayAlert("Local Data Pulled",
+				Debug.WriteLine("Local Data Pulled",
 									viewModel.Partners.Count + " partner(s) has/have been pulled from Kinvey.",
 									"OK");
 			}
@@ -48,17 +48,36 @@ namespace TrainingAppXamarin
 
 		async void OnCreateClicked(object sender, EventArgs args)
 		{
-			Navigation.InsertPageBefore(new CreatePartnerPage(), this);
+			Navigation.InsertPageBefore(new CreatePartnerPage(viewModel), this);
 			await Navigation.PopAsync(true);
 		}
 
 		async void OnPushClicked(object sender, EventArgs args)
 		{
-			await dataStore.PushAsync();
+			try
+			{
+				await dataStore.PushAsync();
+			}
+			catch (KinveyException ke)
+			{
+				await DisplayAlert("Kinvey Exception",
+								   ke.ErrorCode + " | " + ke.Error + " | " + ke.Description + " | " + ke.Debug,
+								   "OK");
+			}
 		}
 
 		async void OnSyncClicked(object sender, EventArgs args)
 		{
+			try
+			{
+				DataStoreResponse response = await dataStore.SyncAsync();	
+			}
+			catch (KinveyException ke)
+			{
+				await DisplayAlert("Kinvey Exception",
+								   ke.ErrorCode + " | " + ke.Error + " | " + ke.Description + " | " + ke.Debug,
+								   "OK");
+			}
 		}
 	}
 }
