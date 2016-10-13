@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TrainingAppXamarin.CreatePartnerPage">
+	<ContentPage.Content Title="Create Partner">
+        <StackLayout Spacing="20" Padding="20"
+                     VerticalOptions="Center">
+            <Entry Placeholder="Name"
+                   x:Name="nameEntry"/>
+            <Entry Placeholder="Company"
+                   x:Name="companyEntry"/>
+			<Entry Placeholder="Email"
+                   x:Name="emailEntry"/>
+			<Button Text="Save" Clicked="OnSaveClicked" />
+			<Button Text="Cancel" Clicked="OnCancelClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

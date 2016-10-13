@@ -15,7 +15,6 @@ namespace TrainingAppXamarin
 		{
 			Client.SharedClient.ActiveUser.Logout();
 			Application.Current.MainPage = new LoginPage();
-			//await Navigation.PopAsync();
 		}
 	}
 

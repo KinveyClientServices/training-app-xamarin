@@ -32,6 +32,8 @@ namespace TrainingAppXamarin
 			//Test API call for use when initially starting development
 			Client.SharedClient.PingAsync();
 
+			this.Properties.Add("partnerDataStore", DataStore<Partner>.Collection("Partner", DataStoreType.SYNC));
+
 			if (Client.SharedClient.ActiveUser != null && Client.SharedClient.ActiveUser.IsActive())
 				MainPage = new MainPage();
 			else
@@ -51,6 +53,8 @@ namespace TrainingAppXamarin
 		{
 			// Handle when your app resumes
 		}
+
+
 	}
 }
 
