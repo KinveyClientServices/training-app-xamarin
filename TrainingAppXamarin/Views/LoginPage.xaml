@@ -12,6 +12,7 @@
                    x:Name="passwordEntry"
                    IsPassword="true"/>
 			<Button Text="Login" Clicked="OnLoginButtonClicked" />
+			<Button Text="Login with MIC" Clicked="OnMICLoginButtonClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

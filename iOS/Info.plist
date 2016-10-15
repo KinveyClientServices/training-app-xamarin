@@ -40,5 +40,16 @@
 	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleName</key>
 	<string>TrainingAppXamarin</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>training</string>
+			</array>
+			<key>CFBundleURLTypes</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 </dict>
 </plist>

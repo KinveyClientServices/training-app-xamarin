@@ -129,13 +129,13 @@
       <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Kinvey-Utils">
-      <HintPath>..\packages\Kinvey.3.0.0-Beta01\lib\Kinvey-Utils.dll</HintPath>
+      <HintPath>..\packages\Kinvey.3.0.0-Beta03\lib\Kinvey-Utils.dll</HintPath>
     </Reference>
     <Reference Include="Kinvey-Xamarin">
-      <HintPath>..\packages\Kinvey.3.0.0-Beta01\lib\Kinvey-Xamarin.dll</HintPath>
+      <HintPath>..\packages\Kinvey.3.0.0-Beta03\lib\Kinvey-Xamarin.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp.Portable">
-      <HintPath>..\packages\Kinvey.3.0.0-Beta01\lib\RestSharp.Portable.dll</HintPath>
+      <HintPath>..\packages\Kinvey.3.0.0-Beta03\lib\RestSharp.Portable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
