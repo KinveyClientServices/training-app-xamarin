@@ -31,6 +31,7 @@ namespace TrainingAppXamarin
 			}
 
 			this.Properties.Add("partnerDataStore", DataStore<Partner>.Collection("Partner", DataStoreType.SYNC));
+			this.Properties.Add("productDataStore", DataStore<Product>.Collection("Products", DataStoreType.CACHE));
 
 			if (Client.SharedClient.ActiveUser != null && Client.SharedClient.ActiveUser.IsActive())
 				MainPage = new MainPage();
@@ -38,7 +39,7 @@ namespace TrainingAppXamarin
 				MainPage = new LoginPage();
 		}
 
-		protected async override void OnStart()
+		protected override void OnStart()
 		{
 		}
 

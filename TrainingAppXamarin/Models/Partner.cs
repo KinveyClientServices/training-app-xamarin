@@ -17,9 +17,7 @@ namespace TrainingAppXamarin
 		[JsonProperty("email")]
 		public string Email { get; set; }
 
-		public Partner()
-		{
-		}
+		public Partner() { }
 
 		public Partner(string name, string company, string email)
 		{

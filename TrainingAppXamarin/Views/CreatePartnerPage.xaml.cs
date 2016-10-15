@@ -18,7 +18,7 @@ namespace TrainingAppXamarin
 
 		async void OnSaveClicked(object sender, EventArgs args)
 		{
-			DataStore<Partner> datastore = DataStore<Partner>.Collection("Partner", DataStoreType.SYNC);
+			DataStore<Partner> datastore = (DataStore<Partner>)Application.Current.Properties["partnerDataStore"];
 			Partner newPartner = new Partner(nameEntry.Text, companyEntry.Text, emailEntry.Text);
 			Partner result = await datastore.SaveAsync(newPartner);
 			List<Partner> newList = viewModel.Partners;

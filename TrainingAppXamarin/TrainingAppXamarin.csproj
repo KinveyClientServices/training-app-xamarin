@@ -53,6 +53,9 @@
     <EmbeddedResource Include="Views\CreatePartnerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreateProductPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -87,6 +90,9 @@
     </Compile>
     <Compile Include="Models\PartnerPageViewModel.cs" />
     <Compile Include="Models\ProductPageViewModel.cs" />
+    <Compile Include="Views\CreateProductPage.xaml.cs">
+      <DependentUpon>CreateProductPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">
