@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TrainingAppXamarin.PartnerPage">
 	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Find" Clicked="OnFindClicked"/>
 		<ToolbarItem Text="Pull" Clicked="OnPullClicked"/>
 		<ToolbarItem Text="Create" Clicked="OnCreateClicked"/>
 		<ToolbarItem Text="Push" Clicked="OnPushClicked"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using KinveyXamarin;
 using Xamarin.Forms;
 
@@ -26,6 +27,24 @@ namespace TrainingAppXamarin
 			catch (KinveyException e)
 			{
 				Debug.WriteLine(@"Failed to pull: {0}", e.Message);
+			}
+		}
+
+		async void OnFindClicked(object sender, EventArgs args)
+		{
+			var query = from partner in dataStore
+						where partner.Name == "Austin"
+						select partner;
+			try
+			{
+				viewModel.Partners = await dataStore.FindAsync(query);
+				Debug.WriteLine("Find completed: {0} partner(s) has/have been pulled from Kinvey.", viewModel.Partners.Count);
+			}
+			catch (KinveyException ke)
+			{
+				await DisplayAlert("Kinvey Exception",
+								   ke.ErrorCode + " | " + ke.Error + " | " + ke.Description + " | " + ke.Debug,
+								   "OK");
 			}
 		}
 

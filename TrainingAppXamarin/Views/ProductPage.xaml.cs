@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using KinveyXamarin;
 using Xamarin.Forms;
@@ -28,6 +29,31 @@ namespace TrainingAppXamarin
 			catch (KinveyException e)
 			{
 				Debug.WriteLine(@"Failed to pull: {0}", e.Message);
+			}
+		}
+
+		async void OnFindClicked(object sender, EventArgs args)
+		{
+			var query = from product in dataStore
+						where product.Name == "iPhone"
+						select product;
+
+			KinveyDelegate<List<Product>> cacheDelegate = new KinveyDelegate<List<Product>>()
+			{
+				onSuccess = (List<Product> results) => viewModel.Products.AddRange(results),
+				onError = (Exception e) => Debug.WriteLine("Failed to query local cache: {0}", e.Message)
+			};
+
+			try
+			{
+				viewModel.Products = await dataStore.FindAsync(query);
+				Debug.WriteLine("Find completed: {0} products(s) has/have been pulled from Kinvey.", viewModel.Products.Count);
+			}
+			catch (KinveyException ke)
+			{
+				await DisplayAlert("Kinvey Exception",
+								   ke.ErrorCode + " | " + ke.Error + " | " + ke.Description + " | " + ke.Debug,
+								   "OK");
 			}
 		}
 
