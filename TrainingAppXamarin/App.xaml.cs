@@ -23,7 +23,7 @@ namespace TrainingAppXamarin
 
 				buildClient(builder).RunSynchronously();
 
-				//Client.SharedClient.MICApiVersion = "v2";
+				Client.SharedClient.MICApiVersion = "v2";
 			}
 			catch (Exception e)
 			{

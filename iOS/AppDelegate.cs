@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using KinveyXamariniOS;
 
 namespace TrainingAppXamarin.iOS
 {
@@ -17,6 +18,11 @@ namespace TrainingAppXamarin.iOS
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
+		}	
+
+		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		{
+			return KinveyXamarin.Client.SharedClient.ActiveUser.OnOAuthCallbackRecieved(url);
 		}
 	}
 }

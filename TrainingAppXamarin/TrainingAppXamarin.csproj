@@ -93,6 +93,7 @@
     <Compile Include="Views\CreateProductPage.xaml.cs">
       <DependentUpon>CreateProductPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IMICLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">

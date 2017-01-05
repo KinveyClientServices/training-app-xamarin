@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using KinveyXamarin;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace TrainingAppXamarin
 {
@@ -21,7 +20,9 @@ namespace TrainingAppXamarin
 
 		async void OnMICLoginButtonClicked(object sender, EventArgs e)
 		{
-			await User.LoginWithAuthorizationCodeAPIAsync(usernameEntry.Text, passwordEntry.Text, "training://");
+			var micLogin = DependencyService.Get<IMICLogin>();
+			micLogin.login();
+			//await User.LoginWithAuthorizationCodeLoginPage(usernameEntry.Text, passwordEntry.Text, "training://");
 			Application.Current.MainPage = new MainPage();
 		}
 	}
